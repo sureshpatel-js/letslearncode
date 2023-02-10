@@ -1,0 +1,52 @@
+.authUserMyCourses {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.authUserMyCoursesContentOne {
+    color: var(--color-gray-darkest);
+    margin-top: 48px;
+    font-weight: 600;
+    font-size: 48px;
+    border-bottom: var(--color-gray-darker);
+}
+
+.authUserMyCoursesContentTwo {
+    color: var(--color-gray-darker);
+    font-size: 18px;
+    padding: 12px 20px;
+}
+
+.authUserMyCoursesContentThree {
+    margin-top: 48px;
+    color: var(--color-gray-darker);
+    font-size: 18px;
+    padding: 12px 20px;
+}
+
+.authUserMyCoursesEnrollNow {
+    color: var(--color-blue-default);
+    font-weight: 600;
+    font-size: 32px;
+}
+
+.authUserMyCoursesEnrollNow>span {
+    border-bottom: 2px solid var(--color-gray-darker);
+}
+
+.authUserMyCoursesEnrollNow:hover {
+    color: var(--color-blue-darker);
+    cursor: pointer;
+}
+
+.authUserMyCourseTileContainer {
+    margin-top: 46px;
+    height: 100%;
+}
+
+.authUserMyCoursesLoader {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}

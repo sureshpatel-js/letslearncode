@@ -1,0 +1,22 @@
+.courseTile {
+    background-color: var(--color-gray-lightest);
+    width: 340px;
+    height: 400px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding-top: 12px;
+    border-radius: 8px;
+    margin: 32px 0px;
+}
+
+.courseTileTitle {
+    color: var(--color-gray-darkest);
+    font-size: 28px;
+    font-weight: 600;
+    text-align: left;
+    padding: 8px 12px;
+}
+
+.courseTileDescription {
+    padding: 8px 12px;
+    color: var(--color-gray-darker);
+}

@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  height: 100vh;
 }
 
 .App-logo {
@@ -32,7 +33,202 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+
+:root {
+  --size-border-width-default: 1px;
+  --size-border-width-light: 1px;
+  --size-border-radius-small: .375rem;
+  --size-border-radius-big: .5rem;
+  --color-transparent-default: rgba(0, 0, 0, 0);
+  --color-black-default: #151a1e;
+  --color-white-default: #ffffff;
+  --color-gray-darkest: #33373b;
+  --color-gray-darker: #676c70;
+  --color-gray-dark: #80858a;
+  --color-gray-default: #a3a7ac;
+  --color-gray-light: #e7eaed;
+  --color-gray-lighter: #f2f5f8;
+  --color-gray-lightest: #fafbfb;
+  --color-teal-darkest: #054861;
+  --color-teal-darker: #149cab;
+  --color-teal-default: #5cebdf;
+  --color-teal-lighter: #9ef9e0;
+  --color-teal-lightest: #dffef0;
+  --color-blue-darkest: #061475;
+  --color-blue-darker: #112caf;
+  --color-blue-default: #2250f4;
+  --color-blue-lighter: #799cfb;
+  --color-blue-lightest: #d2e0fe;
+  --color-gold-darkest: #7a4804;
+  --color-gold-darker: #b7790b;
+  --color-gold-default: #ffb916;
+  --color-gold-lighter: #ffdd73;
+  --color-gold-lightest: #fff6d0;
+  --color-red-darkest: #7a122d;
+  --color-red-darker: #b7303d;
+  --color-red-default: #ff6b60;
+  --color-red-lighter: #ffb59f;
+  --color-red-lightest: #ffebdf;
+  --color-third-party-github: #1b1f23;
+  --color-third-party-github-dark: #040506;
+  --color-third-party-gitlab: #db3b21;
+  --color-third-party-gitlab-dark: #b43622;
+  --color-third-party-bitbucket: #0052cc;
+  --color-third-party-bitbucket-dark: #0747a6;
+  --color-third-party-azure: #0076d1;
+  --color-third-party-azure-dark: #0065b3;
+  --color-dark-black-darker: #070b0d;
+  --color-dark-black-default: #151a1e;
+  --color-dark-gray-darkest: #1c2126;
+  --color-dark-gray-darker: #22262a;
+  --color-dark-gray-dark: #2a2e32;
+  --color-dark-gray-default: #4c5257;
+  --color-dark-gray-light: #80858a;
+  --color-dark-gray-lighter: #a3a7ac;
+  --color-dark-gray-lightest: #e7eaed;
+  --color-dark-teal-darkest: #032b3a;
+  --color-dark-teal-darker: #0f6a80;
+  --color-dark-teal-default: #30c8c9;
+  --color-dark-teal-lighter: #84f3df;
+  --color-dark-teal-lightest: #9ef9e0;
+  --color-dark-blue-darkest: #040d4e;
+  --color-dark-blue-darker: #0a1e8d;
+  --color-dark-blue-default: #183dd1;
+  --color-dark-blue-lighter: #587ef8;
+  --color-dark-blue-lightest: #a6bffd;
+  --color-dark-gold-darkest: #4f2f03;
+  --color-dark-gold-darker: #935c07;
+  --color-dark-gold-default: #e99c02;
+  --color-dark-gold-lighter: #ffcf50;
+  --color-dark-gold-lightest: #ffeba1;
+  --color-dark-red-darkest: #470a1a;
+  --color-dark-red-darker: #931e33;
+  --color-dark-red-default: #f85454;
+  --color-dark-red-lighter: #ff9987;
+  --color-dark-red-lightest: #ffd3bf;
+  --color-dark-third-party-github: #d1d5da;
+  --color-dark-third-party-github-dark: #f6f8fa;
+  --color-dark-third-party-gitlab: #fc6d26;
+  --color-dark-third-party-gitlab-dark: #ff8547;
+  --color-dark-third-party-bitbucket: #4c9aff;
+  --color-dark-third-party-bitbucket-dark: #80b7ff;
+  --color-dark-third-party-azure: #4eb2ff;
+  --color-dark-third-party-azure-dark: #81c8ff;
+  --color-illustration-gray-light-100: #fafbfb;
+  --color-illustration-gray-light-200: #f2f5f8;
+  --color-illustration-gray-light-300: #e7eaed;
+  --color-illustration-gray-light-400: #a3a7ac;
+  --color-illustration-gray-light-500: #80858a;
+  --color-illustration-gray-light-600: #676c70;
+  --color-illustration-gray-light-700: #33373b;
+  --color-illustration-gray-light-800: #151a1e;
+  --color-illustration-gray-light-000: #ffffff;
+  --color-illustration-gray-dark-100: #e7eaed;
+  --color-illustration-gray-dark-200: #a3a7ac;
+  --color-illustration-gray-dark-300: #80858a;
+  --color-illustration-gray-dark-400: #4c5257;
+  --color-illustration-gray-dark-500: #2a2e32;
+  --color-illustration-gray-dark-600: #22262a;
+  --color-illustration-gray-dark-700: #1c2126;
+  --color-illustration-gray-dark-800: #151a1e;
+  --color-illustration-gray-dark-000: #ffffff;
+  --color-illustration-teal-100: #dffef0;
+  --color-illustration-teal-200: #bffde7;
+  --color-illustration-teal-300: #9ef9e0;
+  --color-illustration-teal-400: #84f3df;
+  --color-illustration-teal-500: #5cebdf;
+  --color-illustration-teal-600: #30c8c9;
+  --color-illustration-teal-700: #149cab;
+  --color-illustration-teal-800: #0f6a80;
+  --color-illustration-teal-900: #054861;
+  --color-illustration-teal-050: #f2fef5;
+  --color-illustration-blue-100: #d2e0fe;
+  --color-illustration-blue-200: #a6bffd;
+  --color-illustration-blue-300: #799cfb;
+  --color-illustration-blue-400: #587ef8;
+  --color-illustration-blue-500: #2250f4;
+  --color-illustration-blue-600: #183dd1;
+  --color-illustration-blue-700: #112caf;
+  --color-illustration-blue-800: #0a1e8d;
+  --color-illustration-blue-900: #061475;
+  --color-illustration-blue-050: #e5edff;
+  --color-illustration-gold-100: #fff6d0;
+  --color-illustration-gold-200: #ffeba1;
+  --color-illustration-gold-300: #ffdd73;
+  --color-illustration-gold-400: #ffcf50;
+  --color-illustration-gold-500: #ffb916;
+  --color-illustration-gold-600: #db9710;
+  --color-illustration-gold-700: #b7790b;
+  --color-illustration-gold-800: #935c07;
+  --color-illustration-gold-900: #7a4804;
+  --color-illustration-gold-050: #fffcec;
+  --color-illustration-red-100: #ffebdf;
+  --color-illustration-red-200: #ffd3bf;
+  --color-illustration-red-300: #ffb59f;
+  --color-illustration-red-400: #ff9987;
+  --color-illustration-red-500: #ff6b60;
+  --color-illustration-red-600: #db4648;
+  --color-illustration-red-700: #b7303d;
+  --color-illustration-red-800: #931e33;
+  --color-illustration-red-900: #7a122d;
+  --color-illustration-red-050: #fff5eb;
+  --effect-opacity-0: 0;
+  --effect-opacity-10: .1;
+  --effect-opacity-20: .2;
+  --effect-opacity-38: .38;
+  --effect-opacity-54: .54;
+  --effect-opacity-100: 1;
+  --effect-shadow-focus-hover: 0 0 0 1px #ffb916;
+  --effect-shadow-basic: 0 .125rem .25rem 0 hsla(198, 45%, 10%, .12);
+  --effect-shadow-hover: 0 .5rem .75rem 0 hsla(180, 5%, 92%, .16), 0 .125rem .5rem 0 hsla(0, 0%, 0%, .08);
+  --effect-shadow-strong: 0 .125rem .25rem 0 hsla(198, 45%, 10%, .36), 0 .5rem 1.25rem 0 hsla(197, 43%, 13%, .08);
+  --effect-shadow-stronger: 0 .125rem .25rem 0 hsla(198, 45%, 10%, .12), 0 .125rem 1rem 0 hsla(198, 45%, 10%, .32);
+  --effect-shadow-big: 0 0 5rem hsla(198, 45%, 10%, .08);
+  --effect-shadow-teal: 0 0 0 1px #5cebdf;
+  --effect-shadow-white-teal: 0 0 0 1px #ffffff, 0 0 0 .25rem #5cebdf;
+  --effect-shadow-black-teal: 0 0 0 1px #054861, 0 0 0 .25rem #5cebdf;
+  --effect-shadow-shallow: 0 1px .625rem 0 hsla(210, 7%, 22%, .06), 0 .125rem .25rem 0 hsla(210, 7%, 22%, .08);
+  --effect-shadow-deep: 0 1rem 1.5rem rgba(0, 0, 0, .07), 0 .375rem 1.875rem hsla(0, 0%, 0%, .06), 0 .5rem .625rem hsla(0, 0%, 0%, .1);
+  --size-spacing-nano: .25rem;
+  --size-spacing-micro: .5rem;
+  --size-spacing-tiny: 1rem;
+  --size-spacing-small: 1.5rem;
+  --size-spacing-medium: 2.5rem;
+  --size-spacing-large: 4rem;
+  --size-spacing-xl: 6.5rem;
+  --size-spacing-xxl: 10.5rem;
+  --size-spacing-3xl: 16.5rem;
+  --size-spacing-4xl: 26.5rem;
+  --size-spacing-5xl: 42.5rem;
+  --typography-size-tiny: .75rem;
+  --typography-size-small: .875rem;
+  --typography-size-medium: 1rem;
+  --typography-size-large: 1.125rem;
+  --typography-size-xl: 1.375rem;
+  --typography-size-xxl: 2.25rem;
+  --typography-size-xxxl: 4rem;
+  --typography-size-4xl: 6.5rem;
+  --typography-weight-thin: 100;
+  --typography-weight-light: 300;
+  --typography-weight-regular: 400;
+  --typography-weight-medium: 500;
+  --typography-weight-semibold: 600;
+  --typography-weight-bold: 700;
+  --typography-weight-black: 900;
+  --typography-letter-spacing-tight: -.025em;
+  --typography-letter-spacing-normal: 0;
+  --typography-letter-spacing-wide: 1.5px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

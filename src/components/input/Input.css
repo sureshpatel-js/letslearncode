@@ -1,0 +1,17 @@
+input {
+    padding: 9px 12px;
+    box-sizing: border-box;
+    border: 1px solid var(--color-gray-dark);
+    outline: none;
+    border-radius: 6px;
+    font-size: 16px;
+    width: 100%;
+    color: var(--color-gray-darkest);
+}
+
+
+
+.input-container {
+    border: 2px solid var(--color-teal-default);
+    border-radius: 7px;
+}

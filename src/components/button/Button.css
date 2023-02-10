@@ -1,0 +1,30 @@
+.button {
+    height: 100%;
+    background-color: var(--color-teal-lighter);
+    width: 100%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-container {
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1px;
+    cursor: pointer;
+    border-radius: 7px;
+}
+
+.button-container:hover {
+    transition: 0.5s;
+    border: 2px solid var(--color-teal-default);
+    border-radius: 7px;
+}
+
+.button:active {
+    background-color: var(--color-dark-teal-lighter);
+    transition: 0.2s;
+}

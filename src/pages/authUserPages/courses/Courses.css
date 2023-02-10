@@ -1,0 +1,25 @@
+.authUserCourses {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.authUserCoursesContentOne {
+    color: var(--color-gray-darkest);
+    margin-top: 48px;
+    font-weight: 600;
+    font-size: 48px;
+    border-bottom: var(--color-gray-darker);
+}
+
+.authUserCoursesContentTwo {
+    color: var(--color-gray-darker);
+    font-size: 18px;
+    padding: 12px 20px;
+}
+
+.authUserCoursesLoader {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}

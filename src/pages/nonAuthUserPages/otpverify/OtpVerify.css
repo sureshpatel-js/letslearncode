@@ -1,0 +1,56 @@
+.otpVerifyPageInfo {
+    font-size: 32px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.otpVerifyPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+}
+
+.loginPageForgotPassword>span,
+.otpVerifyResent {
+    text-decoration: underline;
+    text-decoration-color: var(--color-gray-default);
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.loginPageForgotPassword>span:hover {
+    text-decoration-color: var(--color-gray-darkest);
+
+}
+
+.otpVerifyResent:hover {
+    text-decoration-color: var(--color-gray-darkest);
+}
+
+.otpVerifyPageInputContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.otpVerifyPageInputLabel {
+    margin-left: 7px;
+    height: 24px;
+    color: var(--color-illustration-red-600);
+}
+
+.otpVerifyInputLabelDefault {
+    margin-left: 7px;
+    height: 24px;
+    color: var(--color-illustration-blue-600);
+    cursor: pointer;
+}
+
+.loginPageForgotPassword {
+    margin: 12px;
+}
+
+.otpVerifyOtpCount {
+    margin-top: 12px;
+}

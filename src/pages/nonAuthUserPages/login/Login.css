@@ -1,0 +1,49 @@
+.loginPageLLC {
+    font-size: 32px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.loginPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+}
+
+.loginPageForgotPassword>span,
+.loginPageSignUp {
+    text-decoration: underline;
+    text-decoration-color: var(--color-gray-default);
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.loginPageForgotPassword>span:hover {
+    text-decoration-color: var(--color-gray-darkest);
+
+}
+
+.loginPageSignUp:hover {
+    text-decoration-color: var(--color-gray-darkest);
+}
+
+.loginPageInputContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.loginPageInputLabel {
+    margin-left: 7px;
+    height: 24px;
+    color: var(--color-illustration-red-600);
+
+}
+
+.loginPageForgotPassword {
+    margin: 12px;
+}
+.loginPageContainerSignUp{
+    margin-top: 12px;
+}

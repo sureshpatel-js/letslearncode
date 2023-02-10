@@ -1,23 +1,53 @@
 import logo from './logo.svg';
 import './App.css';
-
+import Login from './pages/nonAuthUserPages/login/Login';
+import Signup from "./pages/nonAuthUserPages/signup/Signup";
+import 'react-notifications/lib/notifications.css';
+import OtpVerify from './pages/nonAuthUserPages/otpverify/OtpVerify';
+import ForgotPassword from './pages/nonAuthUserPages/forgotPassword/ForgotPassword';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import Home from './pages/authUserPages/home/Home';
+import Courses from './pages/authUserPages/courses/Courses';
+import MyCourses from './pages/authUserPages/myCourses/MyCourses';
+const router = createBrowserRouter([
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/signup",
+    element: <Signup />,
+  },
+  {
+    path: "/otpVerify",
+    element: <OtpVerify />,
+  },
+  {
+    path: "/home",
+    element: <Home />,
+    children: [
+      {
+        path: "courses",
+        element: <Courses />
+      },
+      {
+        path: "myCourses",
+        element: <MyCourses />
+      },
+    ],
+  },
+  {
+    path: "/forgotPassword",
+    element: <ForgotPassword />,
+  },
+]);
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <RouterProvider router={router} />
     </div>
   );
 }
