@@ -44,6 +44,13 @@
 .loginPageForgotPassword {
     margin: 12px;
 }
-.loginPageContainerSignUp{
+
+.loginPageContainerSignUp {
     margin-top: 12px;
+}
+
+.loginLoader {
+    display: flex;
+    align-items: center;
+    height: calc(100vh - 80px);
 }

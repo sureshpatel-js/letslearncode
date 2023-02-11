@@ -45,7 +45,7 @@ const MyCourses = (props) => {
                 !loader && <div className="authUserMyCourseTileContainer" >
                     {
                         coursesArray.length > 0 ? coursesArray.map((course) => {
-                            return <CourseTile course={course} />
+                            return <CourseTile course={course}  actionText={"Start 🚀"}  />
                         }) : <div className="authUserMyCoursesContentThree">
                             <div>
                                 Your are not enrolled any of our courses.

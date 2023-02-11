@@ -43,7 +43,7 @@ const Courses = (props) => {
                     <div className="authUserCourseTileContainer" >
                         {
                             coursesArray.length > 0 && coursesArray.map((course) => {
-                                return <CourseTile course={course} />
+                                return <CourseTile course={course} actionText={"Enroll now 🚀"} />
                             })
                         }
                     </div></>

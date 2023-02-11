@@ -54,3 +54,10 @@
 .otpVerifyOtpCount {
     margin-top: 12px;
 }
+
+.otpVerifyLoader {
+    display: flex;
+    align-items: center;
+    height: calc(100vh - 80px);
+}
+

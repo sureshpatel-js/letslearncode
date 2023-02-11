@@ -6,13 +6,14 @@ import { NotificationContainer, NotificationManager } from 'react-notifications'
 import axios from "axios";
 import { base_url } from "../../../appConstants";
 import { useNavigate } from "react-router-dom";
+import Loader from "../../../components/loader/Loader";
 const Login = (props) => {
     const navigate = useNavigate();
+    const [loader, setLoader] = useState(false);
     const [state, setState] = useState({
         email: "",
         password: ""
     });
-
     const [error, setError] = useState({
         email: false,
         password: false,
@@ -53,7 +54,7 @@ const Login = (props) => {
             setError(prevState => ({ ...prevState, password: true }));
             return;
         }
-
+        setLoader(true);
         try {
             const res = await axios.post(
                 `${base_url}?path=login`,
@@ -62,6 +63,7 @@ const Login = (props) => {
                     password
                 })
             );
+            setLoader(false);
             const { status, data } = res.data;
             if (status === "error") {
                 NotificationManager.error(data.message, "Error", 3000);
@@ -75,54 +77,64 @@ const Login = (props) => {
                 navigate("/home/courses");
             }
         } catch (error) {
+            setLoader(false);
             console.log(error);
         }
 
         console.log("success")
     }
     return (
-        <div className="loginPage"   >
-            <div className="loginPageLogo" >
-                Logo
-            </div>
-            <div className="loginPageLLC"  >
-                Log in to Let's Learn Code
-            </div>
-            <div className="loginPageInputContainer"  >
-                <label className="loginPageInputLabel" >{error.email ? "📧 Please provide your email." : error.inValidEmail ? "📧 Please enter valid email." : ""}</label>
-                <Input
-                    width={300}
-                    placeholder="Email"
-                    type="text"
-                    onChange={onChange}
-                    name={"email"}
-                    value={state.email}
-                />
-            </div>
-            <div className="loginPageInputContainer" >
-                <label className="loginPageInputLabel" >{error.password ? "🗝️ Please provide your password." : ""}</label>
-                <Input
-                    width={300}
-                    placeholder="Password"
-                    type="password"
-                    onChange={onChange}
-                    name={"password"}
-                    value={state.password}
-                />
-            </div>
+        <div className="loginPage">
+            {
+                !loader && <>
+                    <div className="loginPageLogo" >
+                        Logo
+                    </div>
+                    <div className="loginPageLLC"  >
+                        Log in to Let's Learn Code
+                    </div>
+                    <div className="loginPageInputContainer"  >
+                        <label className="loginPageInputLabel" >{error.email ? "📧 Please provide your email." : error.inValidEmail ? "📧 Please enter valid email." : ""}</label>
+                        <Input
+                            width={300}
+                            placeholder="Email"
+                            type="text"
+                            onChange={onChange}
+                            name={"email"}
+                            value={state.email}
+                        />
+                    </div>
+                    <div className="loginPageInputContainer" >
+                        <label className="loginPageInputLabel" >{error.password ? "🗝️ Please provide your password." : ""}</label>
+                        <Input
+                            width={300}
+                            placeholder="Password"
+                            type="password"
+                            onChange={onChange}
+                            name={"password"}
+                            value={state.password}
+                        />
+                    </div>
 
 
-            <div className="loginPageForgotPassword" >
-                <span  onClick={()=>navigate("/forgotPassword")}> Forgot your password?</span>
-            </div>
-            <Button
-                width={300}
-                height={34}
-                onClick={onClick}
-            >Log in</Button>
-            <div className="loginPageContainerSignUp" >
-                Don't have an account yet? <span onClick={() => navigate("/signup")} className="loginPageSignUp" >Sign up</span>
-            </div>
+                    <div className="loginPageForgotPassword" >
+                        <span onClick={() => navigate("/forgotPassword")}> Forgot your password?</span>
+                    </div>
+                    <Button
+                        width={300}
+                        height={34}
+                        onClick={onClick}
+                    >Log in</Button>
+                    <div className="loginPageContainerSignUp" >
+                        Don't have an account yet? <span onClick={() => navigate("/signup")} className="loginPageSignUp" >Sign up</span>
+                    </div>
+                </>
+            }
+            {
+                loader && <div className="loginLoader" >
+                    <Loader />
+                </div>
+            }
             <NotificationContainer />
         </div>
     )

@@ -12,7 +12,12 @@ import {
 import Home from './pages/authUserPages/home/Home';
 import Courses from './pages/authUserPages/courses/Courses';
 import MyCourses from './pages/authUserPages/myCourses/MyCourses';
+import CoursesDetail from './pages/authUserPages/courses/CoursesDetail';
 const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Login />,
+  },
   {
     path: "/login",
     element: <Login />,
@@ -31,7 +36,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "courses",
-        element: <Courses />
+        element: <Courses />,
+      },
+      {
+        path: "coursesDetail",
+        element: <CoursesDetail />,
       },
       {
         path: "myCourses",

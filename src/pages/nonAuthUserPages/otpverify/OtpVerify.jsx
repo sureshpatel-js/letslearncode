@@ -6,8 +6,10 @@ import { NotificationContainer, NotificationManager } from 'react-notifications'
 import axios from "axios";
 import { base_url } from "../../../appConstants";
 import { useNavigate, useParams } from "react-router-dom";
+import Loader from "../../../components/loader/Loader";
 const OtpVerify = (props) => {
     const navigate = useNavigate();
+    const [loader, setLoader] = useState(false);
     const [state, setState] = useState({
         otp: "",
         password: "",
@@ -73,7 +75,7 @@ const OtpVerify = (props) => {
             setError(prevState => ({ ...prevState, password: true }));
             return;
         }
-
+        setLoader(true);
         try {
             const res = await axios.post(
                 `${base_url}?path=otpVerify`,
@@ -85,16 +87,18 @@ const OtpVerify = (props) => {
             );
             console.log(res);
             const { status, data } = res.data;
+            setLoader(true);
             if (status === "error") {
                 console.log("=====ERROR=====>", res);
                 NotificationManager.error(data.message, "Error", 4000);
             } else {
                 console.log("=====SUCCESS=====>", res);
-                navigate("/home/courses")
+                navigate("/login")
                 //NotificationManager.success(data.message, "Success", 3000);
             }
         } catch (error) {
             console.log(error);
+            setLoader(false);
         }
         console.log("success")
     }
@@ -125,56 +129,67 @@ const OtpVerify = (props) => {
 
     return (
         <div className="otpVerifyPage"   >
-            <div className="otpVerifyPageLogo" >
-                Logo
-            </div>
-            <div className="otpVerifyPageInfo"  >
-                Verify your email
-            </div>
-            <div className="otpVerifyPageInputContainer"  >
-                <label onClick={() => navigate("/signup")} className="otpVerifyInputLabelDefault" >Edit Email 📧 </label>
-                <Input
-                    width={300}
-                    placeholder="Email"
-                    type="email"
-                    onChange={onChange}
-                    name={"email"}
-                    value={state.email}
-                    disabled={true}
-                />
-            </div>
-            <div className="otpVerifyPageInputContainer" >
-                <label className="otpVerifyPageInputLabel" >{error.name ? "🔐 Please enter otp." : ""}</label>
-                <Input
-                    width={300}
-                    placeholder="OTP"
-                    type="number"
-                    onChange={onChange}
-                    name={"otp"}
-                    value={state.otp}
-                />
-            </div>
-            <div style={{ marginBottom: 12 }} className="otpVerifyPageInputContainer"  >
-                <label className="otpVerifyPageInputLabel" >{error.password ? "🗝️ Please create new password." : ""}</label>
-                <Input
-                    width={300}
-                    placeholder="Password"
-                    type="password"
-                    onChange={onChange}
-                    name={"password"}
-                    value={state.password}
-                />
-            </div>
+            {
+                !loader && <>
+                    <div className="otpVerifyPageLogo" >
+                        Logo
+                    </div>
+                    <div className="otpVerifyPageInfo"  >
+                        Verify your email
+                    </div>
+                    <div className="otpVerifyPageInputContainer"  >
+                        <label onClick={() => navigate("/signup")} className="otpVerifyInputLabelDefault" >Edit Email 📧 </label>
+                        <Input
+                            width={300}
+                            placeholder="Email"
+                            type="email"
+                            onChange={onChange}
+                            name={"email"}
+                            value={state.email}
+                            disabled={true}
+                        />
+                    </div>
+                    <div className="otpVerifyPageInputContainer" >
+                        <label className="otpVerifyPageInputLabel" >{error.name ? "🔐 Please enter otp." : ""}</label>
+                        <Input
+                            width={300}
+                            placeholder="OTP"
+                            type="number"
+                            onChange={onChange}
+                            name={"otp"}
+                            value={state.otp}
+                        />
+                    </div>
+                    <div style={{ marginBottom: 12 }} className="otpVerifyPageInputContainer"  >
+                        <label className="otpVerifyPageInputLabel" >{error.password ? "🗝️ Please create new password." : ""}</label>
+                        <Input
+                            width={300}
+                            placeholder="Password"
+                            type="password"
+                            onChange={onChange}
+                            name={"password"}
+                            value={state.password}
+                        />
+                    </div>
 
-            <Button
-                width={300}
-                height={34}
-                onClick={onClick}
-            >Verify</Button>
-            <div className="otpVerifyOtpCount" >
-                OTP has been sent to your registered email address.  {logic.reSendOtp ? <span onClick={reSendOtp} className="otpVerifyResent" >Resend OTP</span> : <span className="otpVerifyResent" >Fetching OTP:{logic.seconds} s</span>}
-            </div>
+                    <Button
+                        width={300}
+                        height={34}
+                        onClick={onClick}
+                    >Verify</Button>
+                    <div className="otpVerifyOtpCount" >
+                        OTP has been sent to your registered email address.  {logic.reSendOtp ? <span onClick={reSendOtp} className="otpVerifyResent" >Resend OTP</span> : <span className="otpVerifyResent" >Fetching OTP:{logic.seconds} s</span>}
+                    </div>
+                </>
+            }
+
+            {
+                loader && <div className="otpVerifyLoader" >
+                    <Loader />
+                </div>
+            }
             <NotificationContainer />
+
         </div>
     )
 }

@@ -1,0 +1,49 @@
+.coursesDetail {
+    padding: 12px;
+}
+
+.coursesDetailHeader {
+    border-bottom: 2px solid var(--color-teal-default);
+}
+
+.coursesDetailHeaderInOne {
+    margin-top: 46px;
+    color: var(--color-dark-black-default);
+    font-size: 32px;
+}
+
+.coursesDetailHeaderInTwo {
+    color: var(--color-dark-black-default);
+    font-size: 18px;
+}
+
+.coursesDetailPayment {
+    margin-top: 18px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 7px;
+    padding: 4px;
+}
+
+.coursesDetailPaymentAmout {
+    color: var(--color-dark-gray-dark);
+}
+
+.coursesDetailPaymentAmout>span {
+    font-size: larger;
+    color: #783afa;
+}
+
+.coursesDetailPaymentUpi {
+    color: var(--color-dark-gray-dark);
+}
+
+.coursesDetailPaymentUpi>span {
+    font-size: larger;
+    color: #783afa;
+}
+
+.coursesDetailStillConfused {
+    margin-top: 26px;
+    color: var(--color-dark-black-default);
+    font-size: 28px;
+}

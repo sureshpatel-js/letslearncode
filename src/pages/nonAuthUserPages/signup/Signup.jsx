@@ -6,8 +6,10 @@ import { NotificationContainer, NotificationManager } from 'react-notifications'
 import axios from "axios";
 import { base_url } from "../../../appConstants";
 import { useNavigate } from "react-router-dom";
+import Loader from "../../../components/loader/Loader";
 const Signup = (props) => {
     const navigate = useNavigate();
+    const [loader, setLoader] = useState(false);
     const [state, setState] = useState({
         email: "",
         name: ""
@@ -65,7 +67,7 @@ const Signup = (props) => {
             setError(prevState => ({ ...prevState, name: true }));
             return;
         }
-
+        setLoader(true);
         try {
             const res = await axios.post(
                 `${base_url}?path=signup`,
@@ -74,6 +76,7 @@ const Signup = (props) => {
                     name
                 })
             );
+            setLoader(false);
             console.log(res);
             const { status, data } = res.data;
             if (status === "error") {
@@ -84,49 +87,62 @@ const Signup = (props) => {
                 navigate(`/otpVerify`)
             }
         } catch (error) {
+            setLoader(false);
             console.log(error);
         }
     }
 
     return (
         <div className="signupPage"   >
-            <div className="signupPageLogo" >
-                Logo
-            </div>
-            <div className="signupPageLLC"  >
-                Sign up to Let's Learn Code
-            </div>
-            <div className="signupPageInputContainer" >
-                <label className="signupPageInputLabel" >{error.name ? "😎 Please provide your name." : ""}</label>
-                <Input
-                    width={300}
-                    placeholder="Name"
-                    type="text"
-                    onChange={onChange}
-                    name={"name"}
-                    value={state.name}
-                />
-            </div>
-            <div style={{ marginBottom: 12 }} className="signupPageInputContainer"  >
-                <label className="signupPageInputLabel" >{error.email ? "📧 Please provide your email." : error.inValidEmail ? "📧 Please enter a valid email." : ""}</label>
-                <Input
-                    width={300}
-                    placeholder="Email"
-                    type="email"
-                    onChange={onChange}
-                    name={"email"}
-                    value={state.email}
-                />
-            </div>
 
-            <Button
-                width={300}
-                height={34}
-                onClick={onClick}
-            >Sign up</Button>
-            <div className="signupPageContainerLogin" >
-                Already have an account? <span onClick={() => navigate("/login")} className="signupPageLogin" >Login in</span>
-            </div>
+            {
+                !loader && <>
+                    <div className="signupPageLogo" >
+                        Logo
+                    </div>
+                    <div className="signupPageLLC"  >
+                        Sign up to Let's Learn Code
+                    </div>
+                    <div className="signupPageInputContainer" >
+                        <label className="signupPageInputLabel" >{error.name ? "😎 Please provide your name." : ""}</label>
+                        <Input
+                            width={300}
+                            placeholder="Name"
+                            type="text"
+                            onChange={onChange}
+                            name={"name"}
+                            value={state.name}
+                        />
+                    </div>
+                    <div style={{ marginBottom: 12 }} className="signupPageInputContainer"  >
+                        <label className="signupPageInputLabel" >{error.email ? "📧 Please provide your email." : error.inValidEmail ? "📧 Please enter a valid email." : ""}</label>
+                        <Input
+                            width={300}
+                            placeholder="Email"
+                            type="email"
+                            onChange={onChange}
+                            name={"email"}
+                            value={state.email}
+                        />
+                    </div>
+
+                    <Button
+                        width={300}
+                        height={34}
+                        onClick={onClick}
+                    >Sign up</Button>
+                    <div className="signupPageContainerLogin" >
+                        Already have an account? <span onClick={() => navigate("/login")} className="signupPageLogin" >Login in</span>
+                    </div>
+                </>
+            }
+
+
+            {
+                loader && <div className="signupLoader" >
+                    <Loader />
+                </div>
+            }
             <NotificationContainer />
         </div>
     )
