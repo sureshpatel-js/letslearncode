@@ -88,7 +88,7 @@ const OtpVerify = (props) => {
             );
             console.log(res);
             const { status, data } = res.data;
-            setLoader(true);
+            setLoader(false);
             if (status === "error") {
                 console.log("=====ERROR=====>", res);
                 NotificationManager.error(data.message, "Error", 4000);
