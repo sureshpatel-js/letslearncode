@@ -7,6 +7,7 @@ import axios from "axios";
 import { base_url } from "../../../appConstants";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../../components/loader/Loader";
+import Logo from "../../../components/logo/Logo";
 const ForgotPassword = (props) => {
     const navigate = useNavigate();
     const [loader, setLoader] = useState(false);
@@ -82,7 +83,7 @@ const ForgotPassword = (props) => {
             {
                 !loader && <>
                     <div className="forgotPasswordPageLogo" >
-                        Logo
+                        <Logo />
                     </div>
                     <div className="forgotPasswordPageLLC"  >
                         Let's Learn Code

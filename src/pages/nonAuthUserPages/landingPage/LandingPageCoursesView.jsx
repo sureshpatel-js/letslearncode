@@ -1,15 +1,16 @@
-import { useEffect, useState } from "react";
-import CourseTile from "../../../components/courseTile/CourseTile";
-import "./Courses.css";
-import axios from "axios";
+import { useState, useEffect } from "react";
 import { base_url } from "../../../appConstants";
+import axios from "axios";
+import { Outlet, useNavigate } from "react-router-dom";
 import Loader from "../../../components/loader/Loader";
-import { useNavigate } from "react-router-dom";
-const Courses = (props) => {
+import CourseTile from "../../../components/courseTile/CourseTile";
+import { NON_AUTH_SIDEBAR_MENU_ITEMS } from "../../../appConstants";
+import "./LandingPageCourseView.css";
+const LandingPageCourseView = () => {
     const navigate = useNavigate();
     const [coursesArray, setCoursesArray] = useState([]);
     const [loader, setLoader] = useState(false);
-    const user = JSON.parse(localStorage.getItem("user"));
+
     useEffect(() => {
         (async () => {
             try {
@@ -34,23 +35,19 @@ const Courses = (props) => {
 
         })();
     }, []);
-    const enrollNow = (id) => {
-        console.log("=====>", id);
-        navigate(`/home/coursesDetail/${id}`);
+    const enrollNow = () => {
+        navigate("/login");
     }
-
     return (
-        <div className="authUserCourses" >
+        <div className="landingPageCourseView" >
             {
-                coursesArray.length > 0 && <>
-                    <div className="authUserCoursesContentTwo" >
-                        Hey {user.name}!
+                coursesArray.length > 0 && <><div className="landingPageCourseViewOne" >
+                    If you are an entrepreneur who wants to build his web app by learning code or you want to just learn code then this is the right place for you. 🚀
+                </div>
+                    <div className="landingPageCourseViewTwo" >
+                        Our aim is not only to teach you a programming language or a framework but also to share with you the experience which we have gained while working with big companies.
                     </div>
-                    <div className="authUserCoursesContentOne" >
-                        Let's go 🚀
-                    </div>
-
-                    <div className="authUserCourseTileContainer" >
+                    <div className="landingPageCourseViewTileContainer" >
                         {
                             coursesArray.length > 0 && coursesArray.map((course) => {
                                 return <CourseTile onClick={() => enrollNow(course.id)} course={course} actionText={"Enroll now 🚀"} />
@@ -58,12 +55,14 @@ const Courses = (props) => {
                         }
                     </div></>
             }
+
             {loader &&
-                <div className="authUserCoursesLoader" >
+                <div className="landingPageCourseViewLoader" >
                     <Loader />
                 </div>
             }
-        </div >
+        </div>
     )
 }
-export default Courses;
+
+export default LandingPageCourseView;

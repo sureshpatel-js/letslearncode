@@ -1,0 +1,30 @@
+.myCoursesTile {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 12px;
+    text-align: left;
+    background-color: var(--color-gray-lightest);
+    margin-top: 12px;
+    margin: 12px;
+}
+
+.myCoursesTileName,
+.myCoursesTileEnrolledDate,
+.myCoursesTileStartDate,
+.myCoursesTileConnect {
+    color: var(--color-gray-darker);
+}
+
+.myCoursesTileName>span {
+    color: var(--color-gray-darkest);
+    font-size: large;
+}
+
+.myCoursesTileEnrolledDate>span {
+    color: var(--color-gray-darkest);
+    font-size: large;
+}
+
+.myCoursesTileStartDate>span {
+    color: var(--color-gray-darkest);
+    font-size: large;
+}

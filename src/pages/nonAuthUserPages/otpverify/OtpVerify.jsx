@@ -7,6 +7,7 @@ import axios from "axios";
 import { base_url } from "../../../appConstants";
 import { useNavigate, useParams } from "react-router-dom";
 import Loader from "../../../components/loader/Loader";
+import Logo from "../../../components/logo/Logo";
 const OtpVerify = (props) => {
     const navigate = useNavigate();
     const [loader, setLoader] = useState(false);
@@ -132,7 +133,7 @@ const OtpVerify = (props) => {
             {
                 !loader && <>
                     <div className="otpVerifyPageLogo" >
-                        Logo
+                        <Logo />
                     </div>
                     <div className="otpVerifyPageInfo"  >
                         Verify your email

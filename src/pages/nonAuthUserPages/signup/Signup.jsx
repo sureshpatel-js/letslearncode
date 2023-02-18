@@ -7,6 +7,7 @@ import axios from "axios";
 import { base_url } from "../../../appConstants";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../../components/loader/Loader";
+import Logo from "./../../../components/logo/Logo";
 const Signup = (props) => {
     const navigate = useNavigate();
     const [loader, setLoader] = useState(false);
@@ -98,7 +99,7 @@ const Signup = (props) => {
             {
                 !loader && <>
                     <div className="signupPageLogo" >
-                        Logo
+                        <Logo />
                     </div>
                     <div className="signupPageLLC"  >
                         Sign up to Let's Learn Code

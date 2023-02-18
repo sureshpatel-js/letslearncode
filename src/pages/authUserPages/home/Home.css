@@ -97,3 +97,10 @@
     border-bottom: 2px solid var(--color-teal-default);
     cursor: pointer;
 }
+
+.homeHeaderRight {
+    margin-right: 12px;
+    color: var(--color-gray-darker);
+    font-size: 24px;
+    cursor: pointer;
+}

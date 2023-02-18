@@ -47,3 +47,75 @@
     color: var(--color-dark-black-default);
     font-size: 28px;
 }
+
+.coursesDetailWhatYouWillLearn {
+    margin-top: 22px;
+}
+
+.coursesDetailWhatYouWillLearnHeader {
+    margin-bottom: 12px;
+}
+
+.coursesDetailWhatYouWillLearnHeader>span {
+    font-size: 28px;
+    color: var(--color-dark-black-default);
+    font-weight: 600;
+    border: 1px solid var(--color-teal-default);
+    border-bottom: 2px solid var(--color-teal-default);
+    padding: 5px;
+    border-radius: 7px;
+
+}
+
+
+
+.whatYouWillLearnEl {
+    text-align: left;
+    display: flex;
+    color: var(--color-dark-gray-dark);
+    font-size: 18px;
+}
+
+.coursesDetailWhatYouWillLearn {
+    padding: 6px;
+}
+
+.authUserCoursesDetailLoader {
+    display: flex;
+    align-items: center;
+    height: calc(100vh - 24px);
+}
+
+.coursesDetailCourseContentHeader>span {
+    font-size: 28px;
+    color: var(--color-dark-black-default);
+    font-weight: 600;
+    border: 1px solid var(--color-teal-default);
+    border-bottom: 2px solid var(--color-teal-default);
+    padding: 5px;
+    border-radius: 7px;
+
+}
+
+.coursesDetailCourseContent {
+    margin-top: 32px;
+}
+
+.coursesDetailCourseContentContainer {
+    margin-top: 16px;
+    padding: 12px;
+    border: 1px solid var(--color-teal-default);
+    border-radius: 7px;
+}
+
+.coursesDetailCourseContentTileHeader{
+    text-align: left;
+}
+
+.coursesDetailCourseContentTileEl {
+    text-align: left;
+    display: flex;
+    color: var(--color-dark-gray-dark);
+    font-size: 18px;
+}
+

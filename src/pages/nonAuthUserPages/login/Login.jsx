@@ -7,6 +7,7 @@ import axios from "axios";
 import { base_url } from "../../../appConstants";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../../components/loader/Loader";
+import Logo from "../../../components/logo/Logo";
 const Login = (props) => {
     const navigate = useNavigate();
     const [loader, setLoader] = useState(false);
@@ -88,7 +89,7 @@ const Login = (props) => {
             {
                 !loader && <>
                     <div className="loginPageLogo" >
-                        Logo
+                        <Logo />
                     </div>
                     <div className="loginPageLLC"  >
                         Log in to Let's Learn Code

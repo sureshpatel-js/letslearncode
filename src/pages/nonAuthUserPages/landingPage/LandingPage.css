@@ -1,0 +1,107 @@
+.landingPage {
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.landingPageLoader {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.landingPageOne {
+    color: var(--color-gray-darkest);
+    margin-top: 48px;
+    font-weight: 600;
+    font-size: 48px;
+    border-bottom: var(--color-gray-darker);
+}
+
+.landingPageTwo {
+    color: var(--color-gray-darker);
+    font-size: 18px;
+    padding: 12px 20px;
+}
+
+
+
+.landingPageCourseTileContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+
+.landingPageHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    height: 46px;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    opacity: 0.9;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.landingPageBody {
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.landingPageHeaderLeft {
+    padding-left: 12px;
+}
+
+.landingPageHeaderRightIcon {
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.landingPageSidebar {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    position: absolute;
+    top: 46px;
+    width: 200px;
+    height: calc(100% - 46px);
+    transition: 500ms;
+
+}
+
+.landingPageSidebarClose {
+    left: -200px;
+}
+
+.landingPageSidebarOpen {
+    left: 0px;
+}
+
+.landingPageSidebarElementContainer {
+    flex: 1;
+}
+.landingPageSidebarElement {
+    padding-left: 6px;
+    padding: 4px;
+    border-radius: 5px;
+    text-align: left;
+    margin: 12px 8px;
+    border: 1px solid var(--color-teal-default);
+    border-bottom: 2px solid var(--color-teal-default);
+    cursor: pointer;
+}

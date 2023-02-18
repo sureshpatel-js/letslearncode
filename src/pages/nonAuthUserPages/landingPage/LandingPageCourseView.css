@@ -1,0 +1,32 @@
+.landingPageCourseViewLoader {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.landingPageCourseViewOne {
+    color: var(--color-gray-darkest);
+    margin-top: 48px;
+    font-weight: 600;
+    font-size: 24px;
+    border-bottom: var(--color-gray-darker);
+    padding: 6px;
+}
+
+.landingPageCourseViewTwo {
+    color: var(--color-gray-darkest);
+    font-size: 18px;
+    padding: 12px 20px;
+    text-align: center;
+}
+
+
+
+.landingPageCourseViewTileContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}

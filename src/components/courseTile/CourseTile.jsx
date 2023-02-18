@@ -2,7 +2,7 @@ import "./CourseTile.css"
 const CourseTile = (props) => {
     const { course } = props;
     return (
-        <div className="courseTile" >
+        <div className="courseTile">
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", flex: 1 }} >
                 <iframe width="320" height="215" src={course.video_url} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 <div className="courseTileTitle" >
@@ -13,7 +13,7 @@ const CourseTile = (props) => {
                 </div>
             </div>
             <div className="courseTileStartLearning">
-                <span>{props.actionText}</span>
+                <span onClick={props.onClick ? props.onClick : ""} >{props.actionText}</span>
             </div>
         </div>
     )

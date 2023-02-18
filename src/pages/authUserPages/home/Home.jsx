@@ -6,6 +6,20 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { SIDEBAR_MENU_ITEMS } from "../../../appConstants";
 
 const Home = (props) => {
+    const [state, setState] = useState({
+        name: "",
+        email: ""
+    });
+    useEffect(() => {
+        const user = JSON.parse(localStorage.getItem("user"));
+        if (user) {
+            const { name, email } = user;
+            setState({
+                name,
+                email
+            })
+        }
+    }, [])
     const navigate = useNavigate();
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const toggleSidebar = () => {
@@ -30,14 +44,26 @@ const Home = (props) => {
         navigate("/login");
     }
 
+    const personClick = () => {
+        alert(`
+        Name: ${state.name}
+        Email: ${state.email}
+        `)
+    }
+
     return (
         <div className="home" >
-            <div onClick={toggleSidebar} className="homeHeader" >
+            <div className="homeHeader" >
                 <div className="homeHeaderLeft" >
-                    <i className={`homeHeaderRightIcon bi ${sidebarOpen ? "bi-x-lg" : "bi-list"}`} ></i>
+                    <div onClick={toggleSidebar} >
+                        <i className={`homeHeaderRightIcon bi ${sidebarOpen ? "bi-x-lg" : "bi-list"}`} ></i>
+                    </div>
                 </div>
-                <div className="homeHeaderRight">
-
+                <div style={{ fontSize: 18, paddingRight: 16 }} >
+                    Let's learn code
+                </div>
+                <div onClick={personClick} className="homeHeaderRight">
+                    <i class="bi bi-person-circle"></i>
                 </div>
             </div>
             <div className={`homeSidebar ${sidebarOpen ? "homeSidebarOpen" : "homeSidebarClose"}`} >

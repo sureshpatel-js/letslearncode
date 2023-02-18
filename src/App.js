@@ -13,22 +13,34 @@ import Home from './pages/authUserPages/home/Home';
 import Courses from './pages/authUserPages/courses/Courses';
 import MyCourses from './pages/authUserPages/myCourses/MyCourses';
 import CoursesDetail from './pages/authUserPages/courses/CoursesDetail';
+import LandingPage from "./pages/nonAuthUserPages/landingPage/LandingPage";
+import LandingPageCourseView from './pages/nonAuthUserPages/landingPage/LandingPageCoursesView';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Login />,
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/signup",
-    element: <Signup />,
-  },
-  {
-    path: "/otpVerify",
-    element: <OtpVerify />,
+    element: <LandingPage />,
+    children: [
+      {
+        path: "",
+        element: <LandingPageCourseView />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "signup",
+        element: <Signup />,
+      },
+      {
+        path: "otpVerify",
+        element: <OtpVerify />,
+      },
+      {
+        path: "forgotPassword",
+        element: <ForgotPassword />,
+      },
+    ]
   },
   {
     path: "/home",
@@ -39,7 +51,7 @@ const router = createBrowserRouter([
         element: <Courses />,
       },
       {
-        path: "coursesDetail",
+        path: "coursesDetail/:id",
         element: <CoursesDetail />,
       },
       {
@@ -47,10 +59,6 @@ const router = createBrowserRouter([
         element: <MyCourses />
       },
     ],
-  },
-  {
-    path: "/forgotPassword",
-    element: <ForgotPassword />,
   },
 ]);
 function App() {

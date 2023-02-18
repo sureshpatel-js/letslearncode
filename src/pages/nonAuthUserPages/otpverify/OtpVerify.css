@@ -61,3 +61,6 @@
     height: calc(100vh - 80px);
 }
 
+.otpVerifyPageLogo {
+    margin-top: 60px;
+}

@@ -1,0 +1,17 @@
+.logo {
+    border: 2px solid var(--color-teal-default);
+    height: 60px;
+    width: 60px;
+    rotate: 45deg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+}
+
+.logoText {
+    rotate: -45deg;
+    font-weight: 400;
+    font-size: 32px;
+    color: var(--color-illustration-blue-700);
+}

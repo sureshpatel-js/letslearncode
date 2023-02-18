@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import CourseTile from "../../../components/courseTile/CourseTile";
 import "./MyCourses.css";
 import axios from "axios";
 import { base_url } from "../../../appConstants";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../../components/loader/Loader";
+import MyCoursesTile from "./MyCoursesTile";
+import { NotificationContainer, NotificationManager } from 'react-notifications';
 const MyCourses = (props) => {
     const navigate = useNavigate()
     const token = localStorage.getItem("token");
@@ -21,6 +22,7 @@ const MyCourses = (props) => {
                 setLoader(false);
                 if (status === "error") {
                     console.log("=====ERROR=====>", res);
+                    NotificationManager.error(data.message, "Error", 3000);
                 } else {
                     //NotificationManager.success(data.message, "Success", 3000);
                     console.log("=====SUCCESS=====>", res);
@@ -35,17 +37,23 @@ const MyCourses = (props) => {
     }, []);
     return (
         <div className="authUserMyCourses" >
-            {/* <div className="authUserMyCoursesContentOne" >
-            
-            </div>
-            <div className="authUserMyCoursesContentTwo" >
-    
-            </div> */}
+
             {
                 !loader && <div className="authUserMyCourseTileContainer" >
                     {
+                        coursesArray.length > 0 && <>
+                            {/* <div className="authUserMyCoursesContentOne" >
+
+                            </div> */}
+                            <div className="authUserMyCoursesContentTwo" >
+                                You are enrolled in {coursesArray.length} Course.
+                            </div>
+                        </>
+                    }
+
+                    {
                         coursesArray.length > 0 ? coursesArray.map((course) => {
-                            return <CourseTile course={course}  actionText={"Start 🚀"}  />
+                            return <MyCoursesTile course={course} />
                         }) : <div className="authUserMyCoursesContentThree">
                             <div>
                                 Your are not enrolled any of our courses.
@@ -64,6 +72,7 @@ const MyCourses = (props) => {
                     <Loader />
                 </div>
             }
+            <NotificationContainer />
         </div >
     )
 }
